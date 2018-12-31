@@ -2,7 +2,7 @@
     "name": "paladinsdev/php-api",
     "description": "A Paladins PHP API adapter for easy communication with the Hi-Rez/Evil Mojo developer API.",
     "keywords": ["paladins", "api", "adapter", "hirez", "champions of the realm", "evil", "mojo", "evil mojo"],
-    "license": "Apache License 2.0",
+    "license": "Apache-2.0",
     "minimum-stability": "stable",
     "authors": [
         {
