@@ -1,0 +1,31 @@
+{
+    "name": "paladinsdev/php-api",
+    "description": "A Paladins PHP API adapter for easy communication with the Hi-Rez/Evil Mojo developer API.",
+    "keywords": ["paladins", "api", "adapter", "hirez", "champions of the realm", "evil", "mojo", "evil mojo"],
+    "license": "Apache License 2.0",
+    "minimum-stability": "stable",
+    "authors": [
+        {
+            "name": "Matthew Hatcher",
+            "email": "matthewh@halfpetal.com",
+            "homepage": "https://halfpetal.com",
+            "role": "Developer"
+        }
+    ],
+    "homepage": "https://github.com/PaladinsDev/PHP-API",
+    "type": "library",
+    "require": {
+		"php": ">=7.1",
+        "illuminate/support": "^5.7",
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "6.*",
+        "phpdocumentor/phpdocumentor": "2.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "PaladinsDev\\PHP\\": "src/"
+        }
+    }
+}
