@@ -144,6 +144,7 @@ class PaladinsAPI
      * Get a player and their details from the API.
      *
      * @param mixed $player
+     * @param int $platform
      * @return mixed
      */
     public function getPlayer($player, int $platform = 5)
@@ -156,7 +157,7 @@ class PaladinsAPI
         if (is_string($player)) {
             $players = $this->getPlayerIdByName($player);
 
-            $firstPlayer = Arr::first($players, function($value, $key) {
+            $firstPlayer = Arr::first($players, function($value, $key) use ($platform) {
                 return $value['portal_id'] == $platform;
             }, null);
 
@@ -167,7 +168,7 @@ class PaladinsAPI
             }
         }
 
-        return $this->makeRequest($this->makeRequest('getplayer', $player));
+        return $this->makeRequest($this->buildUrl('getplayer', $player));
     }
 
     /**
