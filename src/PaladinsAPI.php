@@ -146,7 +146,7 @@ class PaladinsAPI
      * @param mixed $player
      * @return mixed
      */
-    public function getPlayer(mixed $player, int $platform = 5)
+    public function getPlayer($player, int $platform = 5)
     {
         if (!is_string($player) && !is_int($player))
         {
