@@ -217,7 +217,7 @@ class PaladinsAPI
      */
     public function getPlayerLoadouts(int $playerId)
     {
-        return $this->makeRequest($this->buildUrl('getplayerloadouts', $playerId));
+        return $this->makeRequest($this->buildUrl('getplayerloadouts', $playerId, $this->languageId));
     }
 
     /**
