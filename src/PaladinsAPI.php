@@ -182,9 +182,39 @@ class PaladinsAPI
         return $this->makeRequest($this->buildUrl('getplayeridbyname', $name));
     }
 
+    /**
+     * Get a player from PC or PSN. Does not work with Xbox or Switch.
+     *
+     * @param string $name
+     * @param integer $platform
+     * @return mixed
+     */
     public function getPlayerIdByPortalUserId(string $name, int $platform)
     {
         return $this->makeRequest($this->buildUrl('getplayeridbyportaluserid', $name, null, null, null, null, null, null, $platform));
+    }
+
+    /**
+     * Get player ids by the gamertag.
+     *
+     * @param string $name
+     * @param integer $platform
+     * @return mixed
+     */
+    public function getPlayerIdsByGamertag(string $name, int $platform)
+    {
+        return $this->makeRequest($this->buildUrl('getplayeridsbygamertag', $name, null, null, null, null, null, null, $platform));
+    }
+
+    /**
+     * Get player id info for Xbox and Switch.
+     *
+     * @param string $name
+     * @return mixed
+     */
+    public function getPlayerIdInfoForXboxAndSwitch(string $name)
+    {
+        return $this->makeRequest($this->buildUrl('getplayeridinfoforxboxandswitch', $name));
     }
 
     /**
