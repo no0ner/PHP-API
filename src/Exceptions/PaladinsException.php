@@ -1,4 +1,6 @@
-<?php namespace PaladinsDev\PHP;
+<?php 
+
+namespace PaladinsDev\PHP\Exceptions;
 
 class PaladinsException extends \Exception
 {
