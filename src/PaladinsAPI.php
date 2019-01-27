@@ -113,6 +113,7 @@ class PaladinsAPI
      * Get the top 50 most watched/recent matches.
      *
      * @return mixed
+     * @codeCoverageIgnore
      */
     public function getTopMatches()
     {
@@ -160,6 +161,7 @@ class PaladinsAPI
      * Get all the available in game items.
      *
      * @return mixed
+     * @codeCoverageIgnore
      */
     public function getItems()
     {
@@ -303,6 +305,7 @@ class PaladinsAPI
      *
      * @param integer $matchId
      * @return mixed
+     * @codeCoverageIgnore
      */
     public function getMatchModeDetails(int $matchId)
     {
@@ -314,6 +317,7 @@ class PaladinsAPI
      *
      * @param integer $matchId
      * @return mixed
+     * @codeCoverageIgnore
      */
     public function getMatchDetails(int $matchId)
     {
@@ -325,6 +329,7 @@ class PaladinsAPI
      *
      * @param integer $matchId
      * @return mixed
+     * @codeCoverageIgnore
      */
     public function getActiveMatchDetails(int $matchId)
     {
