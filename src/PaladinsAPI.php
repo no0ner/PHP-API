@@ -14,7 +14,7 @@ use PaladinsDev\PHP\Exceptions\SessionException;
  * 
  * @author Matthew Hatcher <matthewh@halfpetal.com>
  * @copyright 2018 Halfpetal LLC
- * @license MIT
+ * @license Apache-2.0
  * @link https://github.com/PaladinsDev/PHP-API
  */
 class PaladinsAPI
