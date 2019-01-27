@@ -164,7 +164,7 @@ class PaladinsAPI
      * Get all the available in game items.
      *
      * @return mixed
-     * @codeCoverageIgn`ore
+     * @codeCoverageIgnore
      */
     public function getItems()
     {
