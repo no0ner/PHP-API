@@ -120,6 +120,9 @@ class PaladinsAPI
         return $this->makeRequest($this->buildUrl('gettopmatches'));
     }
 
+    /** 
+     * @codeCoverageIgnore
+     */
     public function getMatchIdsByQueue(string $hour, $date, int $queue = 424)
     {
         return $this->makeRequest("{$this->apiUrl}/getmatchidsbyqueueJson/{$this->devId}/{$this->getSignature('getmatchidsbyqueue')}/{$this->getSession()}/{$this->getTimestamp()}/{$queue}/{$date}/{$hour}");
@@ -161,7 +164,7 @@ class PaladinsAPI
      * Get all the available in game items.
      *
      * @return mixed
-     * @codeCoverageIgnore
+     * @codeCoverageIgn`ore
      */
     public function getItems()
     {
