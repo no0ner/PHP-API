@@ -9,11 +9,29 @@ class ArrTest extends TestCase
 {
     public function testFirst()
     {
-        $testArray = [100, 150, 200, 250, 300];
+        $array = [100, 200, 300];
 
+        $value = Arr::first($array, function ($value) {
+            return $value >= 150;
+        });
 
-        $this->assertEquals(150, Arr::first($testArray, function ($value, $key) {
-            return $value === 150;
-        }));
+        $this->assertEquals(200, $value);
+        $this->assertEquals(100, Arr::first($array));
+    }
+
+    public function testFirstDefault()
+    {
+        $array = [100, 200, 300];
+
+        $value = Arr::first($array, function ($value) {
+            return $value == 400;
+        });
+
+        $this->assertNull($value);
+    }
+
+    public function testFirstEmptyArray()
+    {
+        $this->assertNull(Arr::first([], null));
     }
 }

@@ -16,7 +16,7 @@ class Arr
     {
         if (is_null($callback)) {
             if (empty($array)) {
-                return value($default);
+                return self::value($default);
             }
             foreach ($array as $item) {
                 return $item;
@@ -27,6 +27,11 @@ class Arr
                 return $value;
             }
         }
-        return value($default);
+        return self::value($default);
+    }
+
+    private static function value($value)
+    {
+        return $value instanceof Closure ? $value() : $value;
     }
 }

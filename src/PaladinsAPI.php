@@ -188,11 +188,13 @@ class PaladinsAPI
         if (is_string($player)) {
             $players = $this->getPlayerIdByName($player);
 
-            $firstPlayer = Arr::first($players, function($value, $key) use ($platform) {
-                return $value['portal_id'] == $platform;
-            }, null);
+            if (!empty($players)) {
+                $firstPlayer = Arr::first($players, function($value, $key) use ($platform) {
+                    return $value['portal_id'] == $platform;
+                }, null);
+            }
 
-            if ($firstPlayer == null) {
+            if (!isset($firstPlayer) || is_null($firstPlayer)) {
                 throw new PaladinsException('The requested player could not be found in the Paladins system.');
             } else {
                 $player = $firstPlayer['player_id'];
@@ -219,6 +221,7 @@ class PaladinsAPI
      * @param string $name
      * @param integer $platform
      * @return mixed
+     * @codeCoverageIgnore
      */
     public function getPlayerIdByPortalUserId(string $name, int $platform)
     {
@@ -231,6 +234,7 @@ class PaladinsAPI
      * @param string $name
      * @param integer $platform
      * @return mixed
+     * @codeCoverageIgnore
      */
     public function getPlayerIdsByGamertag(string $name, int $platform)
     {
@@ -242,6 +246,7 @@ class PaladinsAPI
      *
      * @param string $name
      * @return mixed
+     * @codeCoverageIgnore
      */
     public function getPlayerIdInfoForXboxAndSwitch(string $name)
     {
