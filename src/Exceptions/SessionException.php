@@ -5,7 +5,7 @@ namespace PaladinsDev\PHP\Exceptions;
 /**
  * @codeCoverageIgnore
  */
-class PaladinsException extends \Exception
+class SessionException extends \Exception
 {
     public function __construct($message, $code = 0, Exception $previous = null)
     {
