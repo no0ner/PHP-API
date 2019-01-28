@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Onoi\Cache\Cache;
 use PaladinsDev\PHP\Exceptions\PaladinsException;
 use PaladinsDev\PHP\Exceptions\SessionException;
+use PaladinsDev\PHP\Exceptions\NotFoundException;
 
 /**
  * Paladins API
@@ -491,13 +492,43 @@ class PaladinsAPI
      * 
      * @codeCoverageIgnore
      */
-    private function makeRequest(string $url)
+    private function makeRequest(string $url, int $maxTries = null, int $tries = null)
     {
-        $response = $this->guzzleClient->get($url);
+        if (is_null($maxTries)) {
+            $maxTries = 3;
+        }
+
+        if (is_null($tries)) {
+            $tries = 1;
+        }
+
+        $response = $this->guzzleClient->get($url, [
+            'request.options' => [
+                'exceptions' => false,
+            ]
+        ]);
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode == 404) {
+            throw new NotFoundException('Resource was not found. URL - ' . $url);
+            return;
+        }
+
+        if ($statusCode == 502) {
+            throw new PaladinsException('Proxy error. URL - ' . $url);
+            return;
+        }
+
         $body = json_decode($response->getBody(), true);
 
-        if (isset($body['ret_msg'])) {
-            throw new PaladinsException($body['ret_msg']);
+        if (isset($body['ret_msg']) && strpos(strtolower($body['ret_msg']), 'invalid signature') >= 0) {
+            if ($tries < $maxTries) {
+                $this->makeRequest($url, $maxTries, ($tries + 1));
+            } else {
+                throw new PaladinsException($body['ret_msg']);
+                return;
+            }
         }
 
         return $body;
