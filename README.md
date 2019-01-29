@@ -1,4 +1,6 @@
 # Paladins API (PHP)
+[![Latest Stable Version](https://poser.pugx.org/paladinsdev/php-api/v/stable)](https://packagist.org/packages/paladinsdev/php-api) [![License](https://poser.pugx.org/paladinsdev/php-api/license)](https://packagist.org/packages/paladinsdev/php-api) [![Total Downloads](https://poser.pugx.org/paladinsdev/php-api/downloads)](https://packagist.org/packages/paladinsdev/php-api) [![Build Status](https://img.shields.io/travis/PaladinsDev/PHP-API.svg)](https://travis-ci.org/PaladinsDev/PHP-API)
+
 ## About
 This PHP package came from the need to have a well documented, functional package to help communicate with the Paladins developer API. This package is built using Laravel 5 components and has not been tested outside of that environment.
 
