@@ -367,7 +367,7 @@ class PaladinsAPI
         if (isset($this->cache)) {
             $cacheId = 'paladinsdev.php-api.sessionId';
         
-            if ($this->cache->contains($cacheId) || $this->cache->fetch($cacheId) == null) {
+            if (!$this->cache->contains($cacheId) || $this->cache->fetch($cacheId) == null) {
                 try {
                     $response = $this->guzzleClient->get("{$this->apiUrl}/createsessionJson/{$this->devId}/{$this->getSignature('createsession')}/{$this->getTimestamp()}");
                     $body = json_decode($response->getBody(), true);
