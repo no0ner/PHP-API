@@ -171,7 +171,14 @@ class PaladinsAPI
         return $this->makeRequest($this->buildUrl('getleagueseasons', null, null, null, null, $queue));
     }
 
-    /** 
+    /**
+     * Get all the match ids in a selected queue based on date and hours
+     *
+     * @param string $hour
+     * @param mixed $date
+     * @param integer $queue
+     * @return mixed
+     * 
      * @codeCoverageIgnore
      */
     public function getMatchIdsByQueue(string $hour, $date, int $queue = 424)
