@@ -111,6 +111,28 @@ class PaladinsAPI
     }
 
     /**
+     * Get the current Hi-Rez Paladins server status.
+     *
+     * @return mixed
+     * @codeCoverageIgnore
+     */
+    public function getServerStatus()
+    {
+        return $this->makeRequest($this->buildUrl('gethirezserverstatus'));
+    }
+
+    /**
+     * Get the currnet patch information.
+     *
+     * @return mixed
+     * @codeCoverageIgnore
+     */
+    public function getPatchInfo()
+    {
+        return $this->makeRequest($this->buildUrl('getpatchinfo'));
+    }
+
+    /**
      * Get the top 50 most watched/recent matches.
      *
      * @return mixed
@@ -119,6 +141,34 @@ class PaladinsAPI
     public function getTopMatches()
     {
         return $this->makeRequest($this->buildUrl('gettopmatches'));
+    }
+
+    /**
+     * Get the ranked leaderboard for a tier and a season
+     *
+     * @param integer $tier
+     * @param integer $season
+     * @param integer $queue
+     * @return mixed
+     * @codeCoverageIgnore
+     */
+    public function getRankedLeaderboard(int $tier, int $season, int $queue)
+    {
+        $url = $this->buildUrl('getleagueleaderboard', null, null, null, null, $queue, $tier, $season);
+
+        return $this->makeRequest($url);
+    }
+
+    /**
+     * Get all the seasons and their state for ranked.
+     *
+     * @param integer $queue
+     * @return mixed
+     * @codeCoverageIgnore
+     */
+    public function getRankedSeasons(int $queue)
+    {
+        return $this->makeRequest($this->buildUrl('getleagueseasons', null, null, null, null, $queue));
     }
 
     /** 
@@ -159,6 +209,22 @@ class PaladinsAPI
     public function getChampionSkins(int $championId)
     {
         return $this->makeRequest($this->buildUrl('getchampionskins', null, $this->languageId, null, $championId));
+    }
+
+    /**
+     * Get the top players from the leaderboard.
+     * This should not reflect actual good players 
+     * as it only requires more than 10 matches.
+     * It also is based on win
+     *
+     * @param integer $championId
+     * @param integer $queue
+     * @return mixed
+     * @codeCoverageIgnore
+     */
+    public function getChampionLeaderboard(int $championId, int $queue)
+    {
+        return $this->makeRequest($this->buildUrl('getchampionleaderboard', null, null, null, $championId, $queue));
     }
 
     /**
@@ -307,6 +373,19 @@ class PaladinsAPI
     public function getPlayerMatchHistory(int $playerId)
     {
         return $this->makeRequest($this->buildUrl('getmatchhistory', $playerId));
+    }
+
+    /**
+     * Get the queue specific stats for a player.
+     *
+     * @param integer $playerId
+     * @param integer $queue
+     * @return mixed
+     * @codeCoverageIgnore
+     */
+    public function getPlayerQueueStats(int $playerId, int $queue)
+    {
+        return $this->makeRequest($this->buildUrl('getqueuestats', $playerId, null, null, null, $queue));
     }
 
     /**
