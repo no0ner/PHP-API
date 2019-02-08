@@ -608,7 +608,7 @@ class PaladinsAPI
 
         $body = json_decode($response->getBody(), true);
 
-        if (isset($body['ret_msg']) && strpos(strtolower($body['ret_msg']), 'invalid signature') >= 0) {
+        if (isset($body['ret_msg'])) {
             if ($tries < $maxTries) {
                 $this->makeRequest($url, $maxTries, ($tries + 1));
             } else {
