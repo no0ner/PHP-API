@@ -522,7 +522,7 @@ class PaladinsAPI
      */
     private function getTimestamp()
     {
-        return Carbon::now('UTC')->format('YmdHi') . '00';
+        return Carbon::now('UTC')->format('YmdHis');
     }
 
     /**
