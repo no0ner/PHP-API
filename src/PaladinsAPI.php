@@ -89,7 +89,7 @@ class PaladinsAPI
         $this->authKey      = $authKey;
         $this->cache        = $cacheDriver;
         $this->languageId   = 1;
-        $this->apiUrl       = 'http://api.paladins.com/paladinsapi.svc';
+        $this->apiUrl       = 'https://api.paladins.com/paladinsapi.svc';
         $this->guzzleClient = new \GuzzleHttp\Client;
     }
 
