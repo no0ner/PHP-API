@@ -15,8 +15,8 @@
     "homepage": "https://github.com/PaladinsDev/PHP-API",
     "type": "library",
     "require": {
-        "php": ">=7.1",
-        "guzzlehttp/guzzle": "^6.3",
+        "php": ">=8.0",
+        "guzzlehttp/guzzle": "^7.2",
         "onoi/cache": "^1.2",
         "nesbot/carbon": "~1"
     },
